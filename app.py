@@ -8,11 +8,10 @@ app = Flask(__name__)
 app.secret_key = 'secret_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
-# Change to use on another pc
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'user'
-app.config['MYSQL_DB'] = 'flaskapp'
+app.config['MYSQL_HOST'] = 'remotemysql.com'
+app.config['MYSQL_USER'] = 'FVpvM5AAEL'
+app.config['MYSQL_PASSWORD'] = 'ZvoqeCrVeW'
+app.config['MYSQL_DB'] = 'FVpvM5AAEL'
 
 mysql = MySQL(app)
 
