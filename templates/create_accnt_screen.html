@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block content %}
+<h2>Create Account Page</h2>
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{% for i in range(account['password']|length) %}
+                {{'*'}}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+
+</div>
+{% endblock %}

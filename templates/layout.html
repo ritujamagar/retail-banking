@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</head>
+	<body class="loggedin">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				 <a class="navbar-brand ml-2 mr-4" href="#">RRRS Bank</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a href="{{ url_for('home') }}" class="nav-item nav-link " ><i class="fas fa-home"></i>Home</a>
+			  		<select name="customermanagement" id="customermanagement" onchange="location = this.value;">
+						<option value="#" selected disabled hidden>Customer Management</option>
+						<option value="/employeelogin/create_customer_screen">Create Customer</option>
+						<option value="/employeelogin/update_customer_screen">Update Customer</option>
+						<option value="#">Delete Customer</option>
+					</select>
+					<select name="accountmanagement" id="accountmanagement" onchange="location = this.value;">
+						<option value="#" selected disabled hidden>Account Management</option>
+						<option value="/employeelogin/create_accnt_screen">Create Account</option>
+						<option value="#">Delete Account</option>
+					</select>
+					<select name="statusdetails" id="statusdetails" onchange="location = this.value;">
+						<option value="#" selected disabled hidden>Status Details</option>
+						<option value="/employeelogin/customer_status_screen">Customer Status</option>
+						<option value="/employeelogin/accnt_status_screen">Account Status</option>
+					</select>
+				<a href="{{ url_for('logout') }}" class="nav-item nav-link " style="margin-left: 10px;"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		  </div>
+		</nav>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>
